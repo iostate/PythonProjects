@@ -1,0 +1,26 @@
+# Download a YouTube video, convert it to mp3, and move it
+# to the desktop
+
+#!/bin/sh
+python3 sample.py
+
+# Delete all .webm and .mp4 files to avoid errors
+# find . -name "*.webm" -type f -delete
+# find . -name "*.mp4" -type f -delete
+
+# The following code converts the .mp4 or .webm file
+# that was downloaded with the pytube script above
+# It handles either a .webm or .mp4 file.
+# Any files with .webm and/or .mp4 are deleted afterwards
+if [ -f *.webm ]
+    then
+        ffmpeg -i *.webm -ab 128k newsong.mp3
+        find . -name "*.webm" -type f -delete
+elif [ -f *.mp4 ]
+    then
+    ffmpeg -i *.mp4 -ab 128k newsong.mp3
+    find . -name "*.mp4" -type f -delete
+fi
+
+# Move the file to desktop
+mv newsong.mp3 ~/Desktop/

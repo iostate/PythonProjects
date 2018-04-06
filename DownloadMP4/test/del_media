@@ -1,0 +1,15 @@
+# Delete all mp4 and webm and mp3
+
+echo Deleting all media
+if [ -f *.webm ]
+    then
+        find . -name "*.webm" -type f -delete
+elif [ -f *.mp4 ]
+    then
+        find . -name "*.mp4" -type f -delete
+elif [ -f *.mp3 ]
+    then
+        find . -name "*.mp3" -type f -delete
+fi
+
+echo All media deleted

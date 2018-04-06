@@ -1,0 +1,7 @@
+def main():
+    print "First module's name: {}".format(__name__)
+
+if __name__ == '__main__':
+    main()
+else:
+    print "First module's name: {}".format(__name__)
